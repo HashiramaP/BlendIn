@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, TextInput } from "react-native";
 import { useFonts, DynaPuff_400Regular } from "@expo-google-fonts/dynapuff";
 import AppLoading from "expo-app-loading";
 import { Link } from "expo-router";
@@ -18,20 +18,22 @@ export default function Index() {
       style={{
         flex: 1,
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "center" as "center",
         backgroundColor: "#a800c9",
       }}
     >
       <Text style={styles.title} onPress={() => alert("Hello World!")}>
         Blend In
       </Text>
-      <View style={{ height: 100 }}>
-        <Link href="/gamecode" style={styles.button}>
+      <View style={styles.send}>
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          placeholderTextColor="#fff"
+        />
+        <Text style={styles.button} onPress={() => alert("game joined")}>
           Join Game
-        </Link>
-        <Link href="/name" style={styles.button}>
-          Host Game
-        </Link>
+        </Text>
       </View>
     </View>
   );
@@ -39,18 +41,35 @@ export default function Index() {
 
 const styles = {
   title: {
-    fontSize: 64,
+    fontSize: 48,
     color: "#fff",
     fontFamily: "DynaPuff_400Regular",
     position: "absolute" as "absolute",
-    top: 200,
+    top: 75,
+  },
+  input: {
+    fontSize: 24,
+    color: "#fff",
+    fontFamily: "DynaPuff_400Regular",
+    borderColor: "#2f0136",
+    borderWidth: 4,
+    borderRadius: 10,
+    backgroundColor: "#7e018f",
+    width: 300,
+    padding: 10,
+    marginBottom: 10,
+  },
+  send: {
+    position: "absolute" as "absolute",
+    top: 250,
+    alignItems: "center" as "center",
   },
   button: {
     fontSize: 32,
     color: "#fff",
     fontFamily: "DynaPuff_400Regular",
-    backgroundColor: "#7e018f",
-    width: 250,
+    backgroundColor: "black",
+    width: 300,
     padding: 10,
     textAlign: "center" as "center",
     margin: 10,
